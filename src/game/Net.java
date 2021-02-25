@@ -3,60 +3,57 @@ package game;
 import java.awt.*;
 
 public class Net {
-    private Object Serial;
+    private Object Box;
+
+    private int col;
+    private int row;
+    private double[][] Boxes;
 
     public void render(Graphics g) {
-        for (int x = 0; x < 64; x++) {
-            for (int y = 0; y < 64; y++) {
+        for (int row = 0; row < 64; row++) {
+            for (int col = 0; col < 64; col++) {
 
-                ColorBox(g);
+                colorToPaint();
 
             }
         }
-    }
-
-    private void ColorBox(Graphics g) {
-        int colorBox = 0;
-        if(colorBox == 1) {
-    g.setColor(Color.RED);
-}
-else if(colorBox == 2){
-    g.setColor(Color.GREEN);
-}
-else if(colorBox == 3){
-g.setColor(Color.BLUE);
-}
-else if(colorBox == 4) {
-    g.setColor(Color.BLACK);
-}
-        displaySerialNumb();
-    }
-
-    //Method for visualizing the serial number.
-    private Object displaySerialNumb() {
-        int type = 0;
-
-        switch (type) {
-            case 1:
-                Serial = "BBB1111110";
-                break;
-
-            case 2:
-                Serial = "BBB1111111";
-                break;
-
-            case 3:
-                Serial = "BBB1111112";
-                break;
-
-            case 5:
-                Serial = "BBB1111114";
-                break;
         }
-        return Serial;
+
+        /**Method that paints Box
+         *
+         */
+
+        private void colorToPaint () {
+            Graphics g = null;
+            if (this.Boxes[col][row] == 1) {
+
+                g.setColor(Color.RED);
+
+            } else if (this.Boxes[col][row] == 2) {
+
+                g.setColor(Color.BLUE);
+
+            } else if (this.Boxes[col][row] == 3) {
+
+                g.setColor(Color.GREEN);
+            } else if (this.Boxes[col][row] == 4) {
+
+                g.setColor(Color.BLACK);
+            }
+            drawBox(col, row, g);
+        }
+
+        /**Method that draw
+         *
+         * @param col
+         * @param row
+         * @param g
+         */
+        private void drawBox ( int col, int row, Graphics g){
+
+        }
+
     }
 
 
-
-    }
 
